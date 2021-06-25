@@ -4,11 +4,15 @@
     
     <span class="logo-name">Compete </span>
 
-    <span> <a href='#' > About </a> </span>
+    <ng-container *ngFor="let link of links">
+        <span *ngIf="activeLink==link.index; else link_inactive" > <a class="activeLink" href='#' (click)='loadPage(link.index); false' > {{link.name}} </a> </span>
+        <ng-template #link_inactive> 
+            <span> <a href='#' (click)='loadPage(link.index); false'> {{link.name}} </a> </span>
+        </ng-template>
+    </ng-container>
 
-    <span> <a href='#' > Services </a> </span>
-
-    <span> <a href='#' > CyberGames </a> </span>
+    <span class="example-spacer"></span>
+    <span> Your IP is 156.48.253.19, Cameroon, lat=08, long=1.08</span>
     <span class="example-spacer"></span>
     <button mat-button>
         <div  class="user">

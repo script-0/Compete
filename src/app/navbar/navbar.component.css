@@ -9,6 +9,7 @@
     padding-left: 50px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    font-size: 14px;
 }
 
 .navbar > * {
@@ -21,8 +22,9 @@
     text-decoration: none;
 }
 
-.navbar span a:hover {
-    color: #038eeb;
+.navbar span a:hover , .navbar span .activeLink {
+    font-weight: 600;
+    color: #038eeb !important ;
 }
 
 .navbar img{
@@ -40,6 +42,7 @@
     padding: 0px !important;
     line-height: 20px;
     height: 100%;
+    font-size: 14px;
 }
 
 .navbar button .user{
@@ -64,9 +67,10 @@
 }
 
 .navbar button .user .user-details .user-name, .navbar button .user .user-details .user-description{
-    
+    font-weight: 450;
+    color: #252f37d9;
 }
 
 .navbar button .user .user-details .user-description{
-    
+    font-weight: 400;
 }
