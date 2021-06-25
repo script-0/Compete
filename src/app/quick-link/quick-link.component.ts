@@ -14,8 +14,12 @@ export class QuickLinkComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog() : void {
-    const dialogRef = this.dialog.open(TermsComponent);
+  openDialog(toDisplay:string) : void {
+    const dialogRef = this.dialog.open(TermsComponent ,{
+      data:{
+        toDisplay : toDisplay
+      }
+    });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
