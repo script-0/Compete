@@ -15,6 +15,7 @@ import { ResultComponent } from './result/result.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TermsComponent } from './terms/terms.component';
+import { QuickLinkComponent } from './quick-link/quick-link.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TermsComponent } from './terms/terms.component';
     QuizComponent,
     ResultComponent,
     SignInComponent,
-    TermsComponent
+    TermsComponent,
+    QuickLinkComponent
   ],
   imports: [
     BrowserModule,

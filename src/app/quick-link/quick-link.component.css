@@ -1,0 +1,16 @@
+.quick-link-container .quick-link a{
+    text-decoration: none;
+    color:#005b96;
+}
+
+.quick-link-container  .quick-link a:hover{
+    text-decoration: underline;
+}
+
+.quick-link-container{
+    margin-top: 30px;
+}
+
+.quick-link-container .quick-link a{
+    margin-right: 20px;
+}
