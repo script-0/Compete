@@ -25,6 +25,9 @@ export class SignInComponent implements OnInit {
 
   signIn(username:string , password: string ): void{
     console.log('User : ', username , ' | password : ',password);
+    if(username === 'isaac' && password === "pass"){
+      
+    }
     //Process Authentification
   }
 

@@ -1,0 +1,72 @@
+.example-spacer {
+    flex: 1 1 auto;
+    margin-right: 0;
+  }
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.navbar > * {
+    margin-right: 30px;
+}
+
+.navbar span a {
+    font-weight: 400;
+    color: #252f37d9;
+    text-decoration: none;
+}
+
+.navbar span a:hover {
+    color: #038eeb;
+}
+
+.navbar img{
+    width: 50px;
+    margin-right: 10px;
+}
+
+.navbar .logo-name{
+    font-weight: 700;
+    color: #005b96;
+    margin-right: 50px;
+}
+
+.navbar button {
+    padding: 0px !important;
+    line-height: 20px;
+    height: 100%;
+}
+
+.navbar button .user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+
+
+.navbar button .user .user-logo{    
+    width: 30px;
+    margin-right: 10px;
+}
+
+.navbar button .user .user-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-start;
+}
+
+.navbar button .user .user-details .user-name, .navbar button .user .user-details .user-description{
+    
+}
+
+.navbar button .user .user-details .user-description{
+    
+}
