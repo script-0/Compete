@@ -1,8 +1,13 @@
 .main-container{
-    height: 80%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.main-container > *{
+    margin-bottom: 30px;
 }
 
 .signIn-card {
@@ -52,9 +57,15 @@
     color:#005b96;
 }
 
-.logIn-card-content > a {
+.logIn-card-content > a , .quick-link-container .quick-link a{
     text-decoration: none;
     color:#005b96;
+}
+
+.logIn-card-content > a:hover,
+.signIn-form .signIn-password > a:hover,
+.quick-link-container  .quick-link a:hover{
+    text-decoration: underline;
 }
 
 .signIn-button{
@@ -77,4 +88,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.quick-link-container{
+    margin-top: 30px;
+}
+
+.quick-link-container .quick-link a{
+    margin-right: 20px;
 }
