@@ -6,13 +6,16 @@
         </mat-card-header>
     
         <mat-card-content class="signIn-form">
-            <span class="signIn-username">Username or email address</span>
-            <input type="email" required/>
+            
+            <form [formGroup]="profileForm" (ngSubmit)="submit()">
+                <span class="signIn-username">Username or email address</span>
+                <input formControlName='username' type="text" required/>
 
-            <span class="signIn-password">Password <a href="">Forgot Password ?</a> </span>
-            <input type="password" required/>
+                <span class="signIn-password">Password <a href="">Forgot Password ?</a> </span>
+                <input formControlName='password' type="password" required/>
 
-            <button mat-button class="signIn-button">Sign In</button>
+                <button mat-button class="signIn-button" type="submit" [disabled]="!profileForm.valid">Sign In</button>
+            </form>
 
             <div class="logIn-card">
                 <span class="logIn-card-content">New to Compte ?  <a href=""> Create an account</a> </span>

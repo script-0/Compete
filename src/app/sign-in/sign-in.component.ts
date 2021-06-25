@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
+  profileForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submit():void{
+    this.signIn(this.profileForm.value.username, this.profileForm.value.password);
+  }
+
+  signIn(username:string , password: string ): void{
+    console.log('User : ', username , ' | password : ',password);
+    //Process Authentification
   }
 
 }
