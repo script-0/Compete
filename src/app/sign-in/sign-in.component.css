@@ -1,0 +1,80 @@
+.main-container{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signIn-card {
+    max-width: 400px;
+}
+
+.signIn-logo{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.signIn-logo img{
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.signIn-title{
+    font-size: 18px;
+}
+
+.signIn-title-logo{
+    font-weight: 700;
+    color: #005b96;
+}
+
+.signIn-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.signIn-form > *{
+    margin-bottom: 10px;
+}
+
+.signIn-form input{
+    min-width: 300px !important;
+    min-height: 20px;
+    outline-color: #005b96 !important;
+}
+
+.signIn-form .signIn-password > a{
+    float:right;
+    text-decoration: none;
+    color:#005b96;
+}
+
+.logIn-card-content > a {
+    text-decoration: none;
+    color:#005b96;
+}
+
+.signIn-button{
+    width: 100%;
+    border:1px solid #005a9670 !important;
+    color:#005b96;
+    transition: background 0.7s;
+}
+
+.signIn-button:hover,
+.signIn-button:focus{
+    color: white;
+    background-color: #005b96;
+}
+
+.logIn-card{
+    padding:10px;
+    border-radius: 5px;
+    border:1px solid #005a9638 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
