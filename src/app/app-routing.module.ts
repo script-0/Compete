@@ -5,13 +5,15 @@ import { RegisterComponent } from './register/register.component';
 import { ResultComponent } from './result/result.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path:'register',component:RegisterComponent},
-  { path:'quiz',component:QuizComponent},
-  { path:'result',component:ResultComponent},
+  { path:'quiz',component:QuizComponent, canActivate : [AuthGuard]},
+  { path:'result',component:ResultComponent, canActivate : [AuthGuard]},
   { path:'login',component:SignInComponent},
-  { path:'dashboard',component:NavbarComponent},
+  { path:'login?redirectTo=:redirect',component:SignInComponent},
+  { path:'dashboard',component:NavbarComponent, canActivate : [AuthGuard]},
   { path:'',redirectTo:'/login',pathMatch:'full'}
 ];
 

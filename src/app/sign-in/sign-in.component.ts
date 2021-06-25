@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router , ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -14,9 +15,14 @@ export class SignInComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor() { }
+  redirect = '';
+
+  authFailed = false;
+
+  constructor(private router:Router , private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.redirect = this.activatedRoute.snapshot.queryParams['redirectTo'];
   }
 
   submit():void{
@@ -26,7 +32,20 @@ export class SignInComponent implements OnInit {
   signIn(username:string , password: string ): void{
     console.log('User : ', username , ' | password : ',password);
     if(username === 'isaac' && password === "pass"){
+      sessionStorage.removeItem('user');
+      sessionStorage.setItem('user', JSON.stringify({username : 'isaac',ip : '148.56.2.86', date : Date.now()}) );
+
+      if(this.redirect) {
+        this.router.navigate([this.redirect]);
+      }else{
+        this.router.navigate(['/dashboard']);
+      }
       
+    }else{
+      this.authFailed = true;
+      setTimeout(() => {
+        this.authFailed = false;
+      }, 4000);
     }
     //Process Authentification
   }

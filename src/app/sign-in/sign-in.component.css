@@ -88,3 +88,15 @@
     align-items: center;
     justify-content: center;
 }
+
+.authFailed{
+    color: red;
+    padding:10px;
+    border-radius: 5px;
+    border:1px solid rgba(255, 0, 0, 0.344) !important;
+    background-color: rgba(255, 0, 0, 0.152);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}

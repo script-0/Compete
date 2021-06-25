@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TermsComponent } from './terms/terms.component';
 import { QuickLinkComponent } from './quick-link/quick-link.component';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { QuickLinkComponent } from './quick-link/quick-link.component';
     ReactiveFormsModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
