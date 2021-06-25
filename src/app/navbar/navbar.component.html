@@ -12,14 +12,14 @@
     </ng-container>
 
     <span class="example-spacer"></span>
-    <span> Your IP is 156.48.253.19, Cameroon, lat=08, long=1.08</span>
+    <span> Your IP is <strong> {{user.location.ip}}, {{user.location.country}}, </strong> lat={{user.location.latitude}}, long={{user.location.longitude}}</span>
     <span class="example-spacer"></span>
     <button mat-button>
         <div  class="user">
             <img class="user-logo" src="/assets/img/logo.svg"/>
             <div class='user-details'>
-                <span class="user-name"> Isaac NDEMA</span>
-                <span class="user-description"> Student </span>
+                <span class="user-name"> {{user.name}}</span>
+                <span class="user-description"> {{user.type}} </span>
             </div>
         </div>
     </button>

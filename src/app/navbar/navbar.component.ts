@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   constructor() { }
+
   links = [
     {
       name : 'About',
@@ -26,6 +27,17 @@ export class NavbarComponent implements OnInit {
     }
   ];
   activeLink = 1;
+
+  user = {
+    name : 'Isaac NDEMA',
+    type : 'Student',
+    location : {
+      ip : '156.48.253.19',
+      country : 'Cameroon',
+      latitude : '0.8',
+      longitude : '1.08'
+    }
+  }
 
   ngOnInit(): void {
   }
