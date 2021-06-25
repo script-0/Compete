@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatIconModule} from '@angular/material/icon'; 
-
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { ResultComponent } from './result/result.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     NavbarComponent,
     QuizComponent,
     ResultComponent,
-    SignInComponent
+    SignInComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
