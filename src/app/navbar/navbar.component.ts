@@ -45,8 +45,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   activeLink = 1;
 
   user = {
-    name : 'Isaac NDEMA',
-    type : 'Student',
+    name : '',
+    type : '',
     location : {
       ip : '',
       country : '',
@@ -67,11 +67,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
     },8000);
 
+    this.loadUserInfos();
+
     //Ip localisation
     this.openSnackBar('Some operations pending', 'close', 5);
 
     setTimeout(()=>{this.getIPAddress();} , 2000);
-    
+
   }
 
   loadPage(index: number):void{
@@ -87,8 +89,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.user.location.isp    = data.isp;
         this.user.location.ip = res.ip;
         this._snackBar.dismiss();
-        this.openSnackBar('All done', 'close', 5);
         clearInterval(this.feedbackInterval);
+        this._feedbacksnackBar.dismiss();
+        this.openSnackBar('All done', 'close', 3);
       });
 
       this.locationSubcriptions.push(tmp2);
@@ -97,8 +100,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.locationSubcriptions.push(tmp);
   }
 
+  loadUserInfos() : void{
+    let user_tmp = sessionStorage.getItem('user');
+    if(user_tmp){
+      let user_tmp_parse = JSON.parse(user_tmp);
+      if(user_tmp_parse && user_tmp_parse.name && user_tmp_parse.usertype){
+        this.user.type = user_tmp_parse.usertype;
+        this.user.name =  user_tmp_parse.name;
+        return;
+      }
+    }
+
+  }
   openSnackBar(content: string, buttonName: string,durationInSeconds:number) {
-    if (durationInSeconds > 0){
+    if (durationInSeconds <= 0){
       this._snackBar.open(content, buttonName);
     }else{
       this._snackBar.open(content, buttonName,{

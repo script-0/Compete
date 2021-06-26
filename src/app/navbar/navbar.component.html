@@ -18,13 +18,23 @@
     </ng-template>
     <span class="example-spacer"></span>
     <button mat-button>
-        <div  class="user">
+        <div class="user" *ngIf='user.name!=""; else loading_user'>
             <img class="user-logo" src="/assets/img/logo.svg"/>
             <div class='user-details'>
                 <span class="user-name"> {{user.name}}</span>
                 <span class="user-description"> {{user.type}} </span>
             </div>
         </div>
+
+        <ng-template #loading_user>
+            <div class="user">
+                <img class="user-logo" src="/assets/img/logo.svg"/>
+                <div class='user-details'>
+                    <span class="user-name"> Loading ... </span>
+                    <span class="user-description"> Loading ... </span>
+                </div>
+            </div>
+        </ng-template>
     </button>
 </mat-toolbar>
   
