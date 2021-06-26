@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router , ActivatedRoute, Params } from '@angular/router';
-
+import { environment } from './../../environments/environment.prod';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,6 +22,11 @@ export class SignInComponent implements OnInit {
   constructor(private router:Router , private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let user = sessionStorage.getItem('user');
+    if(user != null){
+      this.router.navigate(['/dashboard']);
+      return;
+    }
     this.redirect = this.activatedRoute.snapshot.queryParams['redirectTo'];
   }
 
@@ -44,9 +49,8 @@ export class SignInComponent implements OnInit {
       this.authFailed = true;
       setTimeout(() => {
         this.authFailed = false;
-      }, 4000);
+      }, environment.delayAfterCloseAuthentificationFailedBox);
     }
-    //Process Authentification
   }
 
 }

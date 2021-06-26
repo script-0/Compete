@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Router} from '@angular/router';
+import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
         var currentDate = Date.now();
         if(userParsed != null && userParsed.date !=null){
           var secondEllapsed = Math.floor((currentDate - userParsed.date) / 1000);
-          if (secondEllapsed < 60*60){
+          if (secondEllapsed < environment.expirationDelay){
             return true;
           }
         }

@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-
+import { environment } from './../../environments/environment.prod';
 
 @Component({
   selector: 'app-navbar',
@@ -53,14 +53,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
       ref.afterDismissed().subscribe(()=>{
           this.getIPAddress();
       });
-    },8000);
+    },environment.delayAfterOperationConsideredAsFailed);
 
     this.loadUserInfos();
 
     //Ip localisation
-    this.openSnackBar('Some operations pending', 'close', 5);
+    this.openSnackBar('Some operations pending', 'close', environment.delayAfterSnackBarDismiss );
 
-    setTimeout(()=>{this.getIPAddress();} , 2000);
+    setTimeout(()=>{this.getIPAddress();} , environment.delayBeforeInitiateGeolocalisation);
 
   }
 
@@ -81,7 +81,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this._snackBar.dismiss();
         clearInterval(this.feedbackInterval);
         this._feedbacksnackBar.dismiss();
-        this.openSnackBar('All done', 'close', 3);
+        this.openSnackBar('All done', 'close', environment.delayAfterSnackBarDismiss);
       });
 
       this.locationSubcriptions.push(tmp2);
@@ -102,6 +102,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
   }
+
   openSnackBar(content: string, buttonName: string,durationInSeconds:number) {
     if (durationInSeconds <= 0){
       this._snackBar.open(content, buttonName);
