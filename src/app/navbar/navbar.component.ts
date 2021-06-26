@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   locationSubcriptions : Subscription[];
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar) {
     this.locationSubcriptions = [];
    }
 
@@ -53,10 +55,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
       isp     : ''
     }
   }
+   
+  feedbackInterval : any;
 
   ngOnInit(): void {
+    //Lauchning FeedBack Snack Bar
+    this.feedbackInterval = setInterval(()=>{
+      let ref = this._feedbacksnackBar.open('Some operations Failed', 'Try again');
+      ref.afterDismissed().subscribe(()=>{
+          this.getIPAddress();
+      });
+    },8000);
+
     //Ip localisation
-    setTimeout(()=>{this.getIPAddress()} , 6000);
+    this.openSnackBar('Some operations pending', 'close', 5);
+
+    setTimeout(()=>{this.getIPAddress();} , 2000);
+    
   }
 
   loadPage(index: number):void{
@@ -71,6 +86,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.user.location.gps   = data.latitude + ',' + data.longitude ;
         this.user.location.isp    = data.isp;
         this.user.location.ip = res.ip;
+        this._snackBar.dismiss();
+        this.openSnackBar('All done', 'close', 5);
+        clearInterval(this.feedbackInterval);
       });
 
       this.locationSubcriptions.push(tmp2);
@@ -79,4 +97,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.locationSubcriptions.push(tmp);
   }
 
+  openSnackBar(content: string, buttonName: string,durationInSeconds:number) {
+    if (durationInSeconds > 0){
+      this._snackBar.open(content, buttonName);
+    }else{
+      this._snackBar.open(content, buttonName,{
+        duration: durationInSeconds * 1000,
+      });
+    }
+  }
 }

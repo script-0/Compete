@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 /* IP Localisation */
 import { HttpClientModule } from '@angular/common/http'
 
@@ -47,7 +47,8 @@ import { AuthGuard } from './auth/auth.guard';
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
