@@ -12,7 +12,10 @@
     </ng-container>
 
     <span class="example-spacer"></span>
-    <span> Your IP is <strong> {{user.location.ip}}, {{user.location.country}}, </strong> lat={{user.location.latitude}}, long={{user.location.longitude}}</span>
+    <span *ngIf='user.location.ip!=""; else loading_location' > Your IP is <strong> {{user.location.ip}}, {{user.location.city}}, </strong> {{user.location.isp}}</span>
+    <ng-template #loading_location>
+        <span> Loading Location informations ... </span>
+    </ng-template>
     <span class="example-spacer"></span>
     <button mat-button>
         <div  class="user">
