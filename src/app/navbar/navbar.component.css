@@ -74,3 +74,13 @@
 .navbar button .user .user-details .user-description{
     font-weight: 400;
 }
+
+.loadingGeolocalisation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingGeolocalisation > *{
+    margin-left: 10px;
+}

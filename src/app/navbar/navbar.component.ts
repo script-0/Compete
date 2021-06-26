@@ -56,7 +56,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     //Ip localisation
-    this.getIPAddress();
+    setTimeout(()=>{this.getIPAddress()} , 6000);
   }
 
   loadPage(index: number):void{

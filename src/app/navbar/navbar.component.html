@@ -14,7 +14,7 @@
     <span class="example-spacer"></span>
     <span *ngIf='user.location.ip!=""; else loading_location' > Your IP is <strong> {{user.location.ip}}, {{user.location.city}}, </strong> {{user.location.isp}}</span>
     <ng-template #loading_location>
-        <span> Loading Location informations ... </span>
+        <span class="loadingGeolocalisation"> Loading Location informations <mat-spinner diameter="20"></mat-spinner> </span>
     </ng-template>
     <span class="example-spacer"></span>
     <button mat-button>
