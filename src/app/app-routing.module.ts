@@ -6,8 +6,10 @@ import { ResultComponent } from './result/result.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthGuard } from './auth/auth.guard';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
+  { path:'about',component:AboutComponent},
   { path:'register',component:RegisterComponent},
   { path:'quiz',component:QuizComponent, canActivate : [AuthGuard]},
   { path:'result',component:ResultComponent, canActivate : [AuthGuard]},
