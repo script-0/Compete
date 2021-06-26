@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'quiz',component:QuizComponent, canActivate : [AuthGuard]},
   { path:'result',component:ResultComponent, canActivate : [AuthGuard]},
   { path:'login',component:SignInComponent},
-  { path:'login?redirectTo=:redirect',component:SignInComponent},
+  { path:'login?redirectTo=:redirect',component:SignInComponent, pathMatch: 'full'},
   { path:'dashboard',component:NavbarComponent, canActivate : [AuthGuard]},
   { path:'',redirectTo:'/login',pathMatch:'full'}
 ];
