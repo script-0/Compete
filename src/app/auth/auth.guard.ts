@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
         var currentDate = Date.now();
         if(userParsed != null && userParsed.date !=null){
           var secondEllapsed = Math.floor((currentDate - userParsed.date) / 1000);
-          if (secondEllapsed < 2*60){
+          if (secondEllapsed < 60*60){
             return true;
           }
         }

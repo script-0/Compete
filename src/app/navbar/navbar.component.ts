@@ -2,6 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Input } from '@angular/core';
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -23,27 +26,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
 
   }
-
-  links = [
-    {
-      name : 'About',
-      component : 'About',
-      index : 1
-    },
-    {
-      name : 'Services',
-      component : 'Services',
-      index : 2
-    },
-    {
-      name : 'CyberGames',
-      component : 'CyberGames',
-      index : 3
-    }
-  ];
-
-  activeLink = 1;
-
+  
+  @Input()  links!: any;
+  @Input()  activeLink!: number;
+  @Output() activeLinkChange = new EventEmitter<number>();
+  
   user = {
     name : '',
     type : '',
@@ -78,6 +65,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   loadPage(index: number):void{
     this.activeLink = index;
+    this.activeLinkChange.emit(this.activeLink);
   }
 
   getIPAddress(){

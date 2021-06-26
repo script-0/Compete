@@ -7,6 +7,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AboutComponent } from './about/about.component';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   { path:'about',component:AboutComponent},
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path:'result',component:ResultComponent, canActivate : [AuthGuard]},
   { path:'login',component:SignInComponent},
   { path:'login?redirectTo=:redirect',component:SignInComponent, pathMatch: 'full'},
-  { path:'dashboard',component:NavbarComponent, canActivate : [AuthGuard]},
+  { path:'dashboard',component:MainComponent, canActivate : [AuthGuard]},
   { path:'',redirectTo:'/login',pathMatch:'full'}
 ];
 

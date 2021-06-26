@@ -24,6 +24,8 @@ import { TermsComponent } from './terms/terms.component';
 import { QuickLinkComponent } from './quick-link/quick-link.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AboutComponent } from './about/about.component';
+import { MainComponent } from './main/main.component';
+import { AdDirective } from './main/ad.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AboutComponent } from './about/about.component';
     SignInComponent,
     TermsComponent,
     QuickLinkComponent,
-    AboutComponent
+    AboutComponent,
+    MainComponent,
+    AdDirective
   ],
   imports: [
     BrowserModule,

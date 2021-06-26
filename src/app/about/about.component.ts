@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { PageComponent } from '../main/page.component';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
-
+export class AboutComponent implements OnInit , PageComponent {
+  
   constructor() { }
 
   team = [
