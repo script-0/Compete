@@ -26,6 +26,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AboutComponent } from './about/about.component';
 import { MainComponent } from './main/main.component';
 import { AdDirective } from './main/ad.directive';
+import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AdDirective } from './main/ad.directive';
     QuickLinkComponent,
     AboutComponent,
     MainComponent,
-    AdDirective
+    AdDirective,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit,  ViewChild, ComponentFactoryResolver} from '@angular/core';
 import { AboutComponent } from '../about/about.component';
+import { ServiceComponent } from '../service/service.component';
 import { AdDirective } from './ad.directive';
 import { PageComponent } from './page.component';
 
@@ -31,7 +32,7 @@ export class MainComponent implements OnInit {
   ];
 
   activeLink = 1;
-  components = [AboutComponent,AboutComponent,AboutComponent]
+  components = [AboutComponent,ServiceComponent,AboutComponent]
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver){
    }
@@ -40,8 +41,7 @@ export class MainComponent implements OnInit {
     this.loadComponent();
   }
 
-  loadComponent() {
-
+  loadComponent = ()=> {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.components[this.activeLink-1]);
 
     const viewContainerRef = this.adHost.viewContainerRef;

@@ -1,0 +1,37 @@
+<div class="about-container">
+    <h1 class="about-title">Service</h1>
+    <hr class="about-separation">
+
+    <section class="definition">
+
+        <img class="definition-img" src="https://metactf.com/assets/img/MetaCTF_Team.jpg"/>
+
+        <article>
+            <h2>What is MetaCTF?</h2>
+            <p> Our goal is to make cybersecurity education accessible and fun. We create hands-on, interactive, and educational capture-the-flag (CTF) events that make it easy to learn new cybersecurity skills by breaking down complex cybersecurity concepts into engaging challenges that simulate real world scenarios. Since 2014, we have held over 50 events and trainings globally for clients such as Wild West Hackin’ Fest, RVASec, and Terminix.</p>
+        </article>
+
+        <article>
+            <h2>What is a CTF?</h2>
+            <p> A CTF is an event where participants work in teams to solve a variety of cybersecurity challenges to find a hidden piece of data called a "flag". For example, the participants may be asked to decrypt a message, reverse engineer a binary, or trace some network traffic. Each challenge is based on a real-world cybersecurity concept and is designed to teach the concept as the participant solves it.</p>
+        </article>
+    </section>
+
+    <section class="team">
+        <h2>Meet the Team</h2>
+        <p>MetaCTF was started by a group of students at the University of Virginia as a volunteer project running capture-the-flag (CTF) events at high schools and universities. We recognized the lack of accessible, complete cybersecurity education resources and realized that CTF events were the perfect format for teaching cybersecurity concepts.</p>
+       
+        <div class="team-card-container">
+            <div class='team-card' *ngFor='let member of team'>
+                <img class='team-img' src={{member.img}} />
+                <h3 class="team-name"> {{member.name}} </h3>
+                <h4 class='team-description'>  {{member.desc}} </h4>
+                <div class="team-link-container">
+                    <a href={{member.links.twitter}}><i class="team-link fa fa-twitter"></i></a>
+                    <a href={{member.links.linkedin}}><i class="team-link fa fa-linkedin"></i></a>
+                    <a href={{member.links.mail}}><i class="team-link fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

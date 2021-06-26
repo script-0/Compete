@@ -30,7 +30,6 @@ export class SignInComponent implements OnInit {
   }
 
   signIn(username:string , password: string ): void{
-    console.log('User : ', username , ' | password : ',password);
     if(username === 'isaac' && password === "pass"){
       sessionStorage.removeItem('user');
       sessionStorage.setItem('user', JSON.stringify({name : 'Isaac NDEMA', username : 'isaac' ,usertype : 'Professional' ,ip : '148.56.2.86', date : Date.now()}) );

@@ -29,6 +29,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   
   @Input()  links!: any;
   @Input()  activeLink!: number;
+  @Input()  loadComponent!: () => void;
   @Output() activeLinkChange = new EventEmitter<number>();
   
   user = {
@@ -66,6 +67,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   loadPage(index: number):void{
     this.activeLink = index;
     this.activeLinkChange.emit(this.activeLink);
+    this.loadComponent();
   }
 
   getIPAddress(){
