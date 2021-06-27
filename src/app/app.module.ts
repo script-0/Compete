@@ -30,6 +30,7 @@ import { MainComponent } from './main/main.component';
 import { AdDirective } from './main/ad.directive';
 import { ServiceComponent } from './service/service.component';
 import { GamesComponent } from './games/games.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { GamesComponent } from './games/games.component';
     MainComponent,
     AdDirective,
     ServiceComponent,
-    GamesComponent
+    GamesComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
