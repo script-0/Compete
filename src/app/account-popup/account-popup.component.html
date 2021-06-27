@@ -1,17 +1,17 @@
 <div class='account-poper-container'>
     <div class="account-paper-header">
         <div class="account-paper-title">
-            <img class="user-logo" src="/assets/img/logo.svg"/>
-            <span> Hi, <strong>Isaac NDEMA</strong></span>
+            <img class="user-logo" src={{img}}/>
+            <span> Hi, <strong>{{username}}</strong></span>
         </div>
         <div class="account-paper-header-title-button">
-            <button mat-button> Manage your account</button>
+            <button mat-button (click)="manageAccount();false"> Manage your account</button>
         </div>
         
     </div>
 
     <div class="account-paper-actions">
-        <button mat-button> Use another account</button>
-        <button mat-button> Log out</button>
+        <button mat-button (click)="changeAccount();false"> Use another account</button>
+        <button mat-button (click)="logout();false"> Log out</button>
     </div>
 </div>

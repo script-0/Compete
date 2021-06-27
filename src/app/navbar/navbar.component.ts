@@ -63,6 +63,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   }
 
+  manageAccount() {
+    console.log("Manage Account");
+  }
+
+  logout(){
+    console.log("Logout");
+  }
+
+  changeAccount(){
+    console.log("Change Account");
+  }
+
   loadPage(index: number):void{
     this.activeLink = index;
     this.activeLinkChange.emit(this.activeLink);

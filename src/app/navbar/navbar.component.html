@@ -38,7 +38,11 @@
     </button>
 
     <mat-menu #menu="matMenu">
-        <app-account-popup></app-account-popup>
+        <app-account-popup username="Isaac NDEMA" 
+                            img='/assets/img/logo.svg'
+                            [manageAccount]='manageAccount'
+                            [logout]='logout'
+                            [changeAccount]='changeAccount'></app-account-popup>
     </mat-menu>
 
 </mat-toolbar>
