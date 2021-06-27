@@ -1,5 +1,6 @@
 import { Component, OnInit,  ViewChild, ComponentFactoryResolver} from '@angular/core';
 import { AboutComponent } from '../about/about.component';
+import { GamesComponent } from '../games/games.component';
 import { ServiceComponent } from '../service/service.component';
 import { AdDirective } from './ad.directive';
 import { PageComponent } from './page.component';
@@ -32,7 +33,7 @@ export class MainComponent implements OnInit {
   ];
 
   activeLink = 1;
-  components = [AboutComponent,ServiceComponent,AboutComponent]
+  components = [AboutComponent,ServiceComponent,GamesComponent]
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver){
    }

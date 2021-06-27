@@ -17,7 +17,8 @@ export class SignInComponent implements OnInit {
 
   redirect = '';
 
-  authFailed = false;
+  authFailed : boolean = false;
+  authSuccessed : boolean = false;
 
   constructor(private router:Router , private activatedRoute: ActivatedRoute) { }
 
@@ -40,8 +41,10 @@ export class SignInComponent implements OnInit {
       sessionStorage.setItem('user', JSON.stringify({name : 'Isaac NDEMA', username : 'isaac' ,usertype : 'Professional' ,ip : '148.56.2.86', date : Date.now()}) );
 
       if(this.redirect) {
+        this.authSuccessed = true;
         this.router.navigate([this.redirect]);
       }else{
+        this.authSuccessed = true;
         this.router.navigate(['/dashboard']);
       }
       

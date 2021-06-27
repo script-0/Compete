@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+ import {MatExpansionModule} from '@angular/material/expansion'; 
+
 /* IP Localisation */
 import { HttpClientModule } from '@angular/common/http'
 
@@ -27,6 +29,7 @@ import { AboutComponent } from './about/about.component';
 import { MainComponent } from './main/main.component';
 import { AdDirective } from './main/ad.directive';
 import { ServiceComponent } from './service/service.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { ServiceComponent } from './service/service.component';
     AboutComponent,
     MainComponent,
     AdDirective,
-    ServiceComponent
+    ServiceComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { ServiceComponent } from './service/service.component';
     MatToolbarModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

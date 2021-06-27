@@ -4,13 +4,12 @@ import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
 import { ResultComponent } from './result/result.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { AuthGuard } from './auth/auth.guard';
-import { AboutComponent } from './about/about.component';
 import { MainComponent } from './main/main.component';
+import { GamesComponent } from './games/games.component';
 
 const routes: Routes = [
-  { path:'about',component:AboutComponent},
+  { path:'games',component:GamesComponent},
   { path:'register',component:RegisterComponent},
   { path:'quiz',component:QuizComponent, canActivate : [AuthGuard]},
   { path:'result',component:ResultComponent, canActivate : [AuthGuard]},
