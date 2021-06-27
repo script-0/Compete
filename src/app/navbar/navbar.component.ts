@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit, Input, Output, EventEmitter, ViewChild} from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from './../../environments/environment.prod';
 import {MatMenuTrigger} from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   locationSubcriptions : Subscription[];
 
-  constructor(private http:HttpClient, private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar) {
+  constructor(private http:HttpClient, private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar,private router:Router) {
     this.locationSubcriptions = [];
    }
 
@@ -63,15 +64,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   }
 
-  manageAccount() {
+  manageAccount = () =>{
     console.log("Manage Account");
   }
 
-  logout(){
-    console.log("Logout");
+  logout = () =>{
+    sessionStorage.removeItem('user');
+    this.router.navigate(['/']);
   }
 
-  changeAccount(){
+  changeAccount = () => {
     console.log("Change Account");
   }
 
