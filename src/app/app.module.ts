@@ -9,8 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
- import {MatExpansionModule} from '@angular/material/expansion'; 
-
+import {MatExpansionModule} from '@angular/material/expansion'; 
+import {MatMenuModule} from '@angular/material/menu'; 
 /* IP Localisation */
 import { HttpClientModule } from '@angular/common/http'
 
@@ -31,6 +31,7 @@ import { AdDirective } from './main/ad.directive';
 import { ServiceComponent } from './service/service.component';
 import { GamesComponent } from './games/games.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { AccountPopupComponent } from './account-popup/account-popup.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     AdDirective,
     ServiceComponent,
     GamesComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    AccountPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatMenuModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

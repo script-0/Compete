@@ -1,11 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input, Output, EventEmitter, ViewChild} from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Input } from '@angular/core';
-import { Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
 import { environment } from './../../environments/environment.prod';
+import {MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
   selector: 'app-navbar',
@@ -31,7 +29,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Input()  activeLink!: number;
   @Input()  loadComponent!: () => void;
   @Output() activeLinkChange = new EventEmitter<number>();
-  
+  @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;
+
   user = {
     name : '',
     type : '',

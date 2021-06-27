@@ -17,7 +17,7 @@
         <span class="loadingGeolocalisation"> Loading Location informations <mat-spinner diameter="20"></mat-spinner> </span>
     </ng-template>
     <span class="example-spacer"></span>
-    <button mat-button>
+    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger>
         <div class="user" *ngIf='user.name!=""; else loading_user'>
             <img class="user-logo" src="/assets/img/logo.svg"/>
             <div class='user-details'>
@@ -36,5 +36,10 @@
             </div>
         </ng-template>
     </button>
+
+    <mat-menu #menu="matMenu">
+        <app-account-popup></app-account-popup>
+    </mat-menu>
+
 </mat-toolbar>
   

@@ -7,9 +7,11 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MainComponent } from './main/main.component';
 import { GamesComponent } from './games/games.component';
+import { AccountPopupComponent } from './account-popup/account-popup.component';
 
 const routes: Routes = [
   { path:'games',component:GamesComponent},
+  { path:'account',component:AccountPopupComponent},
   { path:'register',component:RegisterComponent},
   { path:'quiz',component:QuizComponent, canActivate : [AuthGuard]},
   { path:'result',component:ResultComponent, canActivate : [AuthGuard]},

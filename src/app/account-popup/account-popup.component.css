@@ -1,0 +1,58 @@
+.account-poper-container{
+    width : 250px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.account-poper-container > *{
+    margin-bottom: 10px;
+}
+
+.account-paper-header{
+    background-color:rgba(54, 99, 168, 0.17);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-paper-header .account-paper-title{
+    color : #005b96;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.account-paper-header .account-paper-title .user-logo{
+    width: 30px;
+    margin-right: 10px;
+}
+
+
+.account-paper-header .account-paper-title-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-paper-header .account-paper-header-title-button .mat-button{
+    color : #005b96 !important;
+    font-weight : 400 !important;
+}
+
+.account-paper-actions{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.account-paper-actions button{
+    background-color: rgba(216, 219, 224, 0.65);
+    border-radius: 10px;
+    font-weight : 400 !important;
+}
