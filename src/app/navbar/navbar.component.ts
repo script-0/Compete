@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from './../../environments/environment.prod';
 import {MatMenuTrigger} from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { UserInfos, UserService } from '../user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   locationSubcriptions : Subscription[];
 
-  constructor(private http:HttpClient, private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar,private router:Router) {
+  constructor(private http:HttpClient, private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar,private router:Router, private userServices:UserService) {
     this.locationSubcriptions = [];
    }
 
@@ -32,7 +33,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Output() activeLinkChange = new EventEmitter<number>();
   @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;
 
-  user = {
+  user : UserInfos = {
     name : '',
     type : '',
     location : {
@@ -69,8 +70,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout = () =>{
-    sessionStorage.removeItem('user');
-    this.router.navigate(['/']);
+    this.userServices.logout();
   }
 
   changeAccount = () => {
@@ -84,36 +84,24 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   getIPAddress(){
-    let tmp = this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
-      let tmp2 = this.http.get('https://api.ipgeolocation.io/ipgeo?apiKey=f156be1d536d44068d79a532b774d286&ip='+res.ip).subscribe((data:any)=>{
-        this.user.location.country = data.country_name;
-        this.user.location.city  = data.city;
-        this.user.location.gps   = data.latitude + ',' + data.longitude ;
-        this.user.location.isp    = data.isp;
-        this.user.location.ip = res.ip;
+    this.userServices.getIPAddress(this.user , ()=>{
         this._snackBar.dismiss();
         clearInterval(this.feedbackInterval);
         this._feedbacksnackBar.dismiss();
         this.openSnackBar('All done', 'close', environment.delayAfterSnackBarDismiss);
-      });
+      },
+      (subscription : Subscription)=>{
+        this.locationSubcriptions.push(subscription);
+      }
+    );
 
-      this.locationSubcriptions.push(tmp2);
-    });
-
-    this.locationSubcriptions.push(tmp);
   }
 
   loadUserInfos() : void{
-    let user_tmp = sessionStorage.getItem('user');
+    let user_tmp:UserInfos|null = this.userServices.loadUserInfos(this.user);
     if(user_tmp){
-      let user_tmp_parse = JSON.parse(user_tmp);
-      if(user_tmp_parse && user_tmp_parse.name && user_tmp_parse.usertype){
-        this.user.type = user_tmp_parse.usertype;
-        this.user.name =  user_tmp_parse.name;
-        return;
-      }
+      this.user = user_tmp;
     }
-
   }
 
   openSnackBar(content: string, buttonName: string,durationInSeconds:number) {
