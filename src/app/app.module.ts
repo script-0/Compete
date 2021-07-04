@@ -16,22 +16,22 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { QuizComponent } from './quiz/quiz.component';
-import { ResultComponent } from './result/result.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { ResultComponent } from './components/result/result.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { TermsComponent } from './terms/terms.component';
-import { QuickLinkComponent } from './quick-link/quick-link.component';
-import { AuthGuard } from './auth/auth.guard';
-import { AboutComponent } from './about/about.component';
-import { MainComponent } from './main/main.component';
-import { AdDirective } from './main/ad.directive';
-import { ServiceComponent } from './service/service.component';
-import { GamesComponent } from './games/games.component';
-import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
-import { AccountPopupComponent } from './account-popup/account-popup.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { QuickLinkComponent } from './components/quick-link/quick-link.component';
+import { AuthGuard } from './services/auth/auth.guard';
+import { AboutComponent } from './components/about/about.component';
+import { MainComponent } from './components/main/main.component';
+import { AdDirective } from './components/main/ad.directive';
+import { ServiceComponent } from './components/service/service.component';
+import { GamesComponent } from './components/games/games.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { AccountPopupComponent } from './components/account-popup/account-popup.component';
 
 @NgModule({
   declarations: [

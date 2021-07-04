@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../../environments/environment.prod';
 import {MatMenuTrigger} from '@angular/material/menu';
-import { UserInfos, UserService } from '../user.service';
+import { UserInfos, UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-navbar',
