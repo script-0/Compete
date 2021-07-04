@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router , ActivatedRoute, Params } from '@angular/router';
 import { environment } from './../../../environments/environment.prod';
@@ -8,7 +8,7 @@ import { environment } from './../../../environments/environment.prod';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit, AfterViewInit {
 
   profileForm = new FormGroup({
     username: new FormControl(''),
@@ -19,8 +19,13 @@ export class SignInComponent implements OnInit {
 
   authFailed : boolean = false;
   authSuccessed : boolean = false;
+  isWorking : boolean = true;
 
   constructor(private router:Router , private activatedRoute: ActivatedRoute) { }
+
+  ngAfterViewInit(): void {
+    this.isWorking = false;
+  }
 
   ngOnInit(): void {
     let user = sessionStorage.getItem('user');
@@ -32,7 +37,9 @@ export class SignInComponent implements OnInit {
   }
 
   submit():void{
+    this.isWorking = true;
     this.signIn(this.profileForm.value.username, this.profileForm.value.password);
+    this.isWorking = false;
   }
 
   signIn(username:string , password: string ): void{
