@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from './../../environments/environment.prod';
 import {MatMenuTrigger} from '@angular/material/menu';
-import { Router } from '@angular/router';
 import { UserInfos, UserService } from '../user.service';
 
 @Component({
@@ -16,7 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   locationSubcriptions : Subscription[];
 
-  constructor(private http:HttpClient, private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar,private router:Router, private userServices:UserService) {
+  constructor(private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar, private userServices:UserService) {
     this.locationSubcriptions = [];
    }
 
