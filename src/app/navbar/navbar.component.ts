@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   locationSubcriptions : Subscription[];
 
-  constructor(private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar, private userServices:UserService) {
+  constructor(private _snackBar: MatSnackBar, private _feedbacksnackBar: MatSnackBar, private _userServices:UserService) {
     this.locationSubcriptions = [];
    }
 
@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout = () =>{
-    this.userServices.logout();
+    this._userServices.logout();
   }
 
   changeAccount = () => {
@@ -82,7 +82,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   getIPAddress(){
-    this.userServices.getIPAddress(this.user , ()=>{
+    this._userServices.getIPAddress(this.user , ()=>{
         this._snackBar.dismiss();
         clearInterval(this.feedbackInterval);
         this._feedbacksnackBar.dismiss();
@@ -96,7 +96,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   loadUserInfos() : void{
-    let user_tmp:UserInfos|null = this.userServices.loadUserInfos(this.user);
+    let user_tmp:UserInfos|null = this._userServices.loadUserInfos(this.user);
     if(user_tmp){
       this.user = user_tmp;
     }

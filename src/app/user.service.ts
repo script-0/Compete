@@ -52,7 +52,20 @@ export class UserService {
   }
 
   logout = () =>{
-    sessionStorage.removeItem('user');
+    this.removeUser();
     this.router.navigate(['/']);
+  }
+
+  getUser = () : string|null =>{
+    let user = sessionStorage.getItem('user');
+    if(user){
+      return user;
+    }else{
+      return null;
+    }
+  }
+
+  removeUser = ()=>{
+    sessionStorage.removeItem('user');
   }
 }
