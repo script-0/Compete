@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router , ActivatedRoute, Params } from '@angular/router';
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../../environments/environment.prod';
 
 @Component({
   selector: 'app-sign-in',
