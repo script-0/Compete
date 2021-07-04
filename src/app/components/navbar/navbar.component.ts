@@ -19,10 +19,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
    }
 
   ngOnDestroy(): void {
+    clearInterval(this.feedbackInterval);
+    this._feedbacksnackBar.dismiss();
+    this._snackBar.dismiss();
     this.locationSubcriptions.forEach( (item:Subscription) =>{
       item.unsubscribe();
     });
-
   }
   
   @Input()  links!: any;

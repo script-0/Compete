@@ -84,14 +84,3 @@
 .loadingGeolocalisation > *{
     margin-left: 10px;
 }
-
-::ng-deep .mat-menu,
-::ng-deep .mat-menu-content{
-    padding: 0 0 5px 3px !important;
-    background-color: transparent;
-}
-
-::ng-deep .mat-menu-panel{
-    box-shadow: none;
-    background-color: transparent;
-}
