@@ -10,9 +10,14 @@
                     <mat-panel-description class="game-date">
                         <span>
                             {{game.date}} @ {{game.state.deploy}} 
-                            <span class="game-status-complete">
+                            <span *ngIf="game.state.complete == env.GAME_COMPLETE; else available_game_alive" class="game-status-complete">
                                 ({{game.state.complete}})
                             </span> 
+                            <ng-template #available_game_alive>
+                                <span class="game-status-alive">
+                                    ({{game.state.complete}})
+                                </span> 
+                            </ng-template> 
                         </span>
                         <button mat-button color="primary">Compete</button>
                     </mat-panel-description>
@@ -41,9 +46,14 @@
                     <mat-panel-description class="game-date">
                         <span>
                             {{game.date}} @ {{game.state.deploy}} 
-                            <span class="game-status-complete">
+                            <span *ngIf="game.state.complete == env.GAME_COMPLETE; else available_game_alive" class="game-status-complete">
                                 ({{game.state.complete}})
                             </span> 
+                            <ng-template #available_game_alive>
+                                <span class="game-status-alive">
+                                    ({{game.state.complete}})
+                                </span> 
+                            </ng-template>
                         </span>
                         <button mat-button color="primary">Compete</button>
                     </mat-panel-description>

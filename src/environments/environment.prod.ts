@@ -4,5 +4,8 @@ export const environment = {
   delayBeforeInitiateGeolocalisation : 2000 , //En milli seconds
   delayAfterOperationConsideredAsFailed : 8000 , // En milli seconds
   delayAfterSnackBarDismiss : 3 , // En seconds
-  delayAfterCloseAuthentificationFailedBox : 4000 //En milli seconds
+  delayAfterCloseAuthentificationFailedBox : 4000 , //En milli seconds
+
+  GAME_COMPLETE : 'Completed',
+  GAME_ALIVE : 'Alive'
 };
