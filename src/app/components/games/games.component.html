@@ -65,8 +65,9 @@
                     <br>
                     <span style="margin-left:3.2em;">( {{game.email}}, {{game.profil_type}} )</span>
                 </div>
-                <hr class="game-separation"/>
-                <div>
+               
+                <hr class="game-separation" *ngIf="game.join_code!=''"/>
+                <div *ngIf="game.join_code!=''">
                     <strong>Join code : </strong> {{game.join_code}}
                 </div>
             </mat-expansion-panel>
