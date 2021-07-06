@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { PageComponent } from '../main/page.component';
 
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.css']
 })
-export class ServiceComponent implements OnInit {
+export class ServiceComponent extends PageComponent {
 
-  constructor() { }
+  constructor() { 
+    super();
+  }
+  
   team = [
     {
       name  : 'Isaac NDEMA',
@@ -50,6 +54,7 @@ export class ServiceComponent implements OnInit {
       }
     }
   ]
+
   ngOnInit(): void {
   }
 

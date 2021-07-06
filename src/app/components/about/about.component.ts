@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { PageComponent } from '../main/page.component';
 
 @Component({
@@ -6,9 +6,12 @@ import { PageComponent } from '../main/page.component';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit , PageComponent {
+export class AboutComponent extends PageComponent {
   
-  constructor() { }
+  constructor() { 
+    super();
+  }
+  available_games: any;
 
   team = [
     {
@@ -52,8 +55,7 @@ export class AboutComponent implements OnInit , PageComponent {
       }
     }
   ]
-  
+
   ngOnInit(): void {
   }
-
 }
