@@ -19,7 +19,7 @@
                                 </span> 
                             </ng-template> 
                         </span>
-                        <button mat-button color="primary">Compete</button>
+                        <button mat-button color="primary" (click)="compete($event)" >Compete</button>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <p class="game-description" [innerHTML]="game.description"></p>
@@ -55,7 +55,7 @@
                                 </span> 
                             </ng-template>
                         </span>
-                        <button mat-button color="primary">Compete</button>
+                        <button mat-button color="primary" (click)="compete($event)">Compete</button>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <p class="game-description" [innerHTML]="game.description"></p>

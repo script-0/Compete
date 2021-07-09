@@ -16,4 +16,8 @@ export class PageComponent implements OnInit{
     available_games:any|null;
     your_games:any|null;
     team : any|null;
+
+    compete = (event : Event) : boolean =>{
+      return false;
+    }
 }

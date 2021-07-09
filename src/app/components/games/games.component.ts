@@ -68,4 +68,9 @@ export class GamesComponent extends PageComponent{
       'join_code' : ''
     }
   ]
+
+  compete = (event : Event) : boolean =>{
+    event.stopPropagation();
+    return false;
+  }
 }
