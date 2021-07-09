@@ -4,7 +4,7 @@
 
     <section class="definition">
         <!-- Think to insert default image which will be displayed when loading original images-->
-        <img class="definition-img" alt="About Compete Illustration" src="https://metactf.com/assets/img/MetaCTF_Team.jpg"/>
+        <img class="definition-img" alt="About Compete Illustration" src="https://metactf.com/assets/img/MetaCTF_Team.jpg" loading="lazy"/>
 
         <article>
             <h2>What is MetaCTF?</h2>
@@ -23,7 +23,7 @@
        
         <div class="team-card-container">
             <div class='team-card' *ngFor='let member of team'>
-                <img class='team-img' alt="{{member.name}} photo" src={{member.img}} />
+                <img class='team-img' alt="{{member.name}} photo" src={{member.img}} loading="lazy" />
                 <h3 class="team-name"> {{member.name}} </h3>
                 <h4 class='team-description'>  {{member.desc}} </h4>
                 <div class="team-link-container">

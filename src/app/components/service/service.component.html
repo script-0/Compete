@@ -4,7 +4,7 @@
 
     <section class="definition">
 
-        <img class="definition-img" src="https://metactf.com/assets/img/MetaCTF_Team.jpg"/>
+        <img class="definition-img" src="https://metactf.com/assets/img/MetaCTF_Team.jpg" loading="lazy"/>
 
         <article>
             <h2>What is MetaCTF?</h2>
@@ -23,7 +23,7 @@
        
         <div class="team-card-container">
             <div class='team-card' *ngFor='let member of team'>
-                <img class='team-img' src={{member.img}} />
+                <img class='team-img' src={{member.img}} loading="lazy"/>
                 <h3 class="team-name"> {{member.name}} </h3>
                 <h4 class='team-description'>  {{member.desc}} </h4>
                 <div class="team-link-container">
