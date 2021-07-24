@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router , ActivatedRoute, Params } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 import { environment } from './../../../environments/environment.prod';
 
 @Component({
@@ -21,7 +22,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   authSuccessed : boolean = false;
   isWorking : boolean = true;
 
-  constructor(private router:Router , private activatedRoute: ActivatedRoute) { }
+  constructor(private router:Router , private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
   ngAfterViewInit(): void {
     this.isWorking = false;
@@ -43,10 +44,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   }
 
   signIn(username:string , password: string ): void{
-    if(username === 'isaac' && password === "pass"){
-      sessionStorage.removeItem('user');
-      sessionStorage.setItem('user', JSON.stringify({name : 'Isaac NDEMA', username : 'isaac' ,usertype : 'Professional' ,ip : '148.56.2.86', date : Date.now()}) );
-
+    if( this.userService.signIn( username , password ) ){
       if(this.redirect) {
         this.authSuccessed = true;
         this.router.navigate([this.redirect]);

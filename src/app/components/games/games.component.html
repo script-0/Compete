@@ -1,38 +1,46 @@
 <div class="game-container">
     <section class="available-events">
-        <h2 class="available-events-title">Available events</h2>
-        <mat-accordion class="game-headers-align" multi>
+        <h2 class="available-events-title">Available events ({{available_games.length}} events)</h2>
+
+        <div *ngIf="available_games.length == 0">
+            <strong>
+                There are no upcoming competitions.
+            </strong>
+        </div>
+
+        <mat-accordion *ngIf="available_games.length!=0" class="game-headers-align" multi>
             <mat-expansion-panel *ngFor="let game of available_games">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="game-title">
-                       {{game.title}}
-                    </mat-panel-title>
-                    <mat-panel-description class="game-date">
-                        <span>
-                            {{game.date}} @ {{game.state.deploy}} 
-                            <span *ngIf="game.state.complete == env.GAME_COMPLETE; else available_game_alive" class="game-status-complete">
-                                ({{game.state.complete}})
-                            </span> 
-                            <ng-template #available_game_alive>
-                                <span class="game-status-alive">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="game-title">
+                            {{game.title}}
+                        </mat-panel-title>
+                        <mat-panel-description class="game-date">
+                            <span>
+                                {{game.date}} @ {{game.state.deploy}} 
+                                <span *ngIf="game.state.complete == env.GAME_COMPLETE; else available_game_alive" class="game-status-complete">
                                     ({{game.state.complete}})
                                 </span> 
-                            </ng-template> 
-                        </span>
-                        <button mat-button color="primary" (click)="compete($event)" >Compete</button>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p class="game-description" [innerHTML]="game.description"></p>
-                <hr class="game-separation"/>
-                <div>
-                    <strong>Visibility : </strong> {{game.visibility}}
-                </div>
-                <hr class="game-separation"/>
-                <div>
-                    <strong>Competition Type : </strong> {{game.profil_type}}
-                </div>
-            </mat-expansion-panel>
+                                <ng-template #available_game_alive>
+                                    <span class="game-status-alive">
+                                        ({{game.state.complete}})
+                                    </span> 
+                                </ng-template> 
+                            </span>
+                            <button mat-button color="primary" (click)="compete($event)" >Compete</button>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p class="game-description" [innerHTML]="game.description"></p>
+                    <hr class="game-separation"/>
+                    <div>
+                        <strong>Visibility : </strong> {{game.visibility}}
+                    </div>
+                    <hr class="game-separation"/>
+                    <div>
+                        <strong>Competition Type : </strong> {{game.profil_type}}
+                    </div>
+                </mat-expansion-panel>
         </mat-accordion>
+        
     </section>
 
     <section class="your-events">

@@ -68,4 +68,13 @@ export class UserService {
   removeUser = ()=>{
     sessionStorage.removeItem('user');
   }
+
+  signIn(username:string , password: string): boolean {
+    if(username === 'isaac' && password === "pass"){
+      sessionStorage.removeItem('user');
+      sessionStorage.setItem('user', JSON.stringify({name : 'Isaac NDEMA', username : 'isaac' ,usertype : 'Professional' ,ip : '148.56.2.86', date : Date.now()}) );
+      return true;
+    }
+    return false;
+  }
 }
