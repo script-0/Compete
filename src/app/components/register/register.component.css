@@ -3,9 +3,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.example-card {
+.main-container > *{
+    margin-bottom: 30px;
+}
+
+.register-card {
     max-width: 400px;
 }
 
@@ -14,9 +19,70 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .register-logo img{
     width: 50px;
     margin-bottom: 10px;
+}
+
+.register-title{
+    font-size: 18px;
+}
+
+.register-title-logo{
+    font-weight: 700;
+    color: #005b96;
+}
+
+.register-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form form > *{
+    margin-bottom: 10px;
+}
+
+.register-form form input , 
+.register-form form .register-button{
+    min-width: 300px !important;
+    min-height: 20px;
+    outline-color: #005b96 !important;
+}
+
+.logIn-card{
+    padding:10px 55px 10px 55px;
+    border-radius: 5px;
+    border:1px solid #005a9638 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation-controls{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.navigation-controls button{
+    color: #005b96;
+    border: 1px solid #005b96;
+    padding: 2px 5px 2px 5px !important;
+    line-height: 20px;
+}
+
+.navigation-controls button:hover{
+    color: white;
+}
+
+.navigation-controls .go-back:hover{
+    background-color: #2e3133;
+}
+
+
+.navigation-controls .go-next:hover{
+    background-color: #005b96;
 }

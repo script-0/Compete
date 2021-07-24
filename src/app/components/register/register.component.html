@@ -1,20 +1,44 @@
 <div class="main-container">
-    <mat-card class="example-card">
-        <mat-card-header class="register-logo">
-            <img src="/assets/img/logo.svg" />
-            <span class="re">Sign in to <span>Compete</span> </span>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>      
+  <mat-card class="register-card">
+      <mat-card-header class="register-logo">
+          <img src="/assets/img/logo.svg" />
+          <span class="register-title">Sign up to <span class="register-title-logo">Compete</span> </span>
+      </mat-card-header>
+  
+      <mat-card-content class="register-form">
+          
+          <form [formGroup]="profileForm" (ngSubmit)="submit()">
+              <span *ngIf="activeSection==0" class="register-name">Name</span>
+              <input *ngIf="activeSection==0" formControlName='name' type="text" required/>
+
+              <span *ngIf="activeSection==1" class="register-f-name">First Name</span>
+              <input *ngIf="activeSection==1" formControlName='first_name' type="text" required/>
+
+              <span *ngIf="activeSection==2" class="register-username">Username</span>
+              <input *ngIf="activeSection==2" formControlName='username' type="text" required/>
+
+              <span *ngIf="activeSection==3" class="register-email">Email</span>
+              <input *ngIf="activeSection==3" formControlName='email' type="email" required/>
+
+              <span *ngIf="activeSection==4" class="register-password">Password</span>
+              <input *ngIf="activeSection==4" formControlName='password' type="password" required/>
+
+              <button *ngIf="activeSection==5" mat-button class="register-button" type="submit" [disabled]="!profileForm.valid || isWorking">Sign Up</button>
+          </form>
+
+          <div *ngIf='registerFailed' class="registerFailed"> Registration Failed</div>
+
+          <div *ngIf='registerSuccessed' class="registerSuccessed"> Registration Successed</div>
+          <div class="navigation-controls">
+            <button mat-button class="go-back" [disabled]= "activeSection==0" (click)="previousSection()"> < Back </button>
+            <button mat-button class="go-next" [disabled]= "activeSection==5" (click)="nextSection()"> Next > </button>
+          </div>
+      </mat-card-content>
+  </mat-card>
+
+  <div class="logIn-card">
+    <span class="logIn-card-content">Have you an account ?  <a href=""> Login now !</a> </span>
+  </div>
+  
+  <app-quick-link></app-quick-link>
 </div>
