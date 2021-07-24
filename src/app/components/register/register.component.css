@@ -92,3 +92,16 @@
 .navigation-controls .go-next:enabled:hover{
     background-color: #005b96;
 }
+
+.register-button{
+    width: 100%;
+    border:1px solid #005a9670 !important;
+    color:#005b96;
+    transition: background 0.7s;
+}
+
+.register-button:enabled:hover,
+.register-button:enabled:focus{
+    color: white;
+    background-color: #005b96;
+}
