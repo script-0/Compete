@@ -1,0 +1,4 @@
+- [ ] Auto focus field
+- [ ] Next when 'Enter'
+- [ ] Transition on changing field
+- [ ] Link login and register page

@@ -9,13 +9,13 @@
           
           <form [formGroup]="profileForm" (ngSubmit)="submit()">
               <span *ngIf="activeSection==0" class="register-name">Name</span>
-              <input *ngIf="activeSection==0" formControlName='name' type="text" required/>
+              <input *ngIf="activeSection==0" formControlName='name' type="text" required autofocus/>
 
               <span *ngIf="activeSection==1" class="register-f-name">First Name</span>
-              <input *ngIf="activeSection==1" formControlName='first_name' type="text" required/>
+              <input *ngIf="activeSection==1" formControlName='first_name' type="text" required />
 
               <span *ngIf="activeSection==2" class="register-username">Username</span>
-              <input *ngIf="activeSection==2" formControlName='username' type="text" required/>
+              <input *ngIf="activeSection==2" formControlName='username' type="text" required />
 
               <span *ngIf="activeSection==3" class="register-email">Email</span>
               <input *ngIf="activeSection==3" formControlName='email' type="email" required/>

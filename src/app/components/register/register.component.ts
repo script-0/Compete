@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.isWorking = false;
+    console.log(this.profileForm)
   }
 
   ngOnInit(): void {
@@ -70,7 +71,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       case 2 : 
         return this.profileForm.value.username == "";
       case 3 : 
-        return this.profileForm.value.email == "";
+        return this.profileForm.value.email == ""; //Check email synthax
       case 4 : 
         return this.profileForm.value.password == "";
       case 5 : 
