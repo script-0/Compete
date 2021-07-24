@@ -56,8 +56,27 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   nextSection(){
-    if (this.activeSection < 6){
+    if (this.activeSection < 5){
       this.activeSection +=1;
+    }
+  }
+
+  activeSectionFilled() : boolean{
+    switch(this.activeSection){
+      case 0 :
+        return this.profileForm.value.name == "";
+      case 1 : 
+        return this.profileForm.value.first_name == "";
+      case 2 : 
+        return this.profileForm.value.username == "";
+      case 3 : 
+        return this.profileForm.value.email == "";
+      case 4 : 
+        return this.profileForm.value.password == "";
+      case 5 : 
+        return this.profileForm.value.type == "";
+      default : 
+        return true;
     }
   }
 

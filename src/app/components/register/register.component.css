@@ -74,15 +74,21 @@
     line-height: 20px;
 }
 
-.navigation-controls button:hover{
+.navigation-controls button:enabled:hover{
     color: white;
 }
 
-.navigation-controls .go-back:hover{
+.navigation-controls button:disabled{
+    color: #919191;
+    background-color: white;
+    border: 0px solid #2e3133;
+}
+
+.navigation-controls .go-back:enabled:hover{
     background-color: #2e3133;
 }
 
 
-.navigation-controls .go-next:hover{
+.navigation-controls .go-next:enabled:hover{
     background-color: #005b96;
 }

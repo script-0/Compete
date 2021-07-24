@@ -31,7 +31,7 @@
           <div *ngIf='registerSuccessed' class="registerSuccessed"> Registration Successed</div>
           <div class="navigation-controls">
             <button mat-button class="go-back" [disabled]= "activeSection==0" (click)="previousSection()"> < Back </button>
-            <button mat-button class="go-next" [disabled]= "activeSection==5" (click)="nextSection()"> Next > </button>
+            <button mat-button class="go-next" [disabled]= "activeSection==5 || activeSectionFilled()" (click)="nextSection()"> Next > </button>
           </div>
       </mat-card-content>
   </mat-card>
