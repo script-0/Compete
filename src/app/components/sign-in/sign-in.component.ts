@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    let user = sessionStorage.getItem('user');
+    let user = this.userService.getUser();
     if(user != null){
       this.router.navigate(['/dashboard']);
       return;
