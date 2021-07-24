@@ -14,13 +14,13 @@
               <span *ngIf="activeSection==1" class="register-f-name">First Name</span>
               <input *ngIf="activeSection==1" formControlName='first_name' type="text" required />
 
-              <span *ngIf="activeSection==2" class="register-username">Username</span>
+              <span *ngIf="activeSection==2" class="register-username">Username ( At least 04 Characters required )</span>
               <input *ngIf="activeSection==2" formControlName='username' type="text" required />
 
               <span *ngIf="activeSection==3" class="register-email">Email</span>
               <input *ngIf="activeSection==3" formControlName='email' type="email" required/>
 
-              <span *ngIf="activeSection==4" class="register-password">Password</span>
+              <span *ngIf="activeSection==4" class="register-password">Password ( At least 04 Characters required )</span>
               <input *ngIf="activeSection==4" formControlName='password' type="password" required/>
 
               <button *ngIf="activeSection==5" mat-button class="register-button" type="submit" [disabled]="!profileForm.valid || isWorking">Sign Up</button>

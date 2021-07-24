@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -13,9 +13,21 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   profileForm = new FormGroup({
     name: new FormControl(''),
     first_name: new FormControl(''),
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('',[
+                                  Validators.required,
+                                  Validators.minLength(4)
+                                  ]
+                              ),
+    email: new FormControl('',[ 
+                                Validators.required,
+                                Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+                              ]
+                          ),
+    password: new FormControl('',[
+                                  Validators.required,
+                                  Validators.minLength(4)
+                                  ]
+                              ),
     type: new FormControl(''),
   });
 
@@ -69,11 +81,23 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       case 1 : 
         return this.profileForm.value.first_name == "";
       case 2 : 
-        return this.profileForm.value.username == "";
+        let tmp_u = this.profileForm.get('username');
+        if(tmp_u!=null){
+          return tmp_u.invalid;
+        }
+        return false; //Check Username length
       case 3 : 
-        return this.profileForm.value.email == ""; //Check email synthax
-      case 4 : 
-        return this.profileForm.value.password == "";
+        let tmp_e = this.profileForm.get('email');
+        if(tmp_e!=null){
+          return tmp_e.invalid;
+        }
+        return false; //Check email synthax
+      case 4 :
+        let tmp_p = this.profileForm.get('password');
+        if(tmp_p!=null){
+          return tmp_p.invalid;
+        }
+        return false; //Check Password length
       case 5 : 
         return this.profileForm.value.type == "";
       default : 
