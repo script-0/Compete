@@ -2,3 +2,4 @@
 - [ ] Next when 'Enter'
 - [ ] Transition on changing field
 - [ ] Link login and register page
+- [ ] Check emainl on profileForm.isValid

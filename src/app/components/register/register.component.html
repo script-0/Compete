@@ -29,6 +29,7 @@
           <div *ngIf='registerFailed' class="registerFailed"> Registration Failed</div>
 
           <div *ngIf='registerSuccessed' class="registerSuccessed"> Registration Successed</div>
+
           <div class="navigation-controls">
             <button mat-button class="go-back" [disabled]= "activeSection==0" (click)="previousSection()"> < Back </button>
             <button mat-button class="go-next" [disabled]= "activeSection==5 || activeSectionFilled()" (click)="nextSection()"> Next > </button>

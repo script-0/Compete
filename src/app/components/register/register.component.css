@@ -52,6 +52,10 @@
     outline-color: #005b96 !important;
 }
 
+.register-form form .register-button{
+    min-width: 325px !important;
+}
+
 .logIn-card{
     padding:10px 55px 10px 55px;
     border-radius: 5px;
