@@ -2,11 +2,23 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  animations: [
+    trigger(
+      'slideInOut', 
+      [
+        transition(':enter', [
+          style({transform: 'translateX(-50%)'}),
+          animate('200ms ease-in', style({transform: 'translateX(0%)'}))
+        ])
+      ]
+    )
+  ]
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
 
@@ -76,7 +88,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   doNext(event:KeyboardEvent):void{
     if (event.key === "Enter") {
-      this.nextSection()
+      if( !this.activeSectionFilled()) {
+        this.nextSection()
+      }
     }
   }
 
