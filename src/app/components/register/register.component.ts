@@ -74,6 +74,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
   }
 
+  doNext(event:KeyboardEvent):void{
+    if (event.key === "Enter") {
+      this.nextSection()
+    }
+  }
+
   activeSectionFilled() : boolean{
     switch(this.activeSection){
       case 0 :
