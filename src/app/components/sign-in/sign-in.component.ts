@@ -61,4 +61,9 @@ export class SignInComponent implements OnInit, AfterViewInit {
     }
   }
 
+  signUp(event:MouseEvent):void{
+    event.preventDefault();
+    this.router.navigate(['/register']);
+  }
+
 }

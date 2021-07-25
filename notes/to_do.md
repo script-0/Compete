@@ -1,5 +1,5 @@
 - [x] Auto focus field
 - [x] Next when 'Enter'
 - [x] Transition on changing field
-- [ ] Link login and register page
+- [x] Link login and register page
 - [x] Check emainl on profileForm.isValid

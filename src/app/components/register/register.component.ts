@@ -94,6 +94,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
   }
 
+  signIn(event:MouseEvent):void{
+    event.preventDefault();
+    this.router.navigate(['/login']);
+  }
+
   activeSectionFilled() : boolean{
     switch(this.activeSection){
       case 0 :
