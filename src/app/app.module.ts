@@ -32,6 +32,7 @@ import { ServiceComponent } from './components/service/service.component';
 import { GamesComponent } from './components/games/games.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { AccountPopupComponent } from './components/account-popup/account-popup.component';
+import { FocusDirective } from './directives/focus/focus.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AccountPopupComponent } from './components/account-popup/account-popup.
     ServiceComponent,
     GamesComponent,
     ScrollToTopComponent,
-    AccountPopupComponent
+    AccountPopupComponent,
+    FocusDirective
   ],
   imports: [
     BrowserModule,
