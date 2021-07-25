@@ -53,7 +53,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.isWorking = false;
-    console.log(this.profileForm)
   }
 
   ngOnInit(): void {
