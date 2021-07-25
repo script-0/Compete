@@ -37,7 +37,7 @@ export class UserService {
   }
 
   getIPAddress = (user : UserInfos, dismissSnackbar : ()=>void , addSubcription :(subcription:Subscription)=>void) =>{
-    let tmp = this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
+    let tmp = this.http.get("https://api.ipify.org/?format=json").subscribe((res:any)=>{
       let tmp2 = this.http.get('https://api.ipgeolocation.io/ipgeo?apiKey=f156be1d536d44068d79a532b774d286&ip='+res.ip).subscribe((data:any)=>{
         user.location.country = data.country_name;
         user.location.city  = data.city;
