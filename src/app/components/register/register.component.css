@@ -46,6 +46,7 @@
 }
 
 .register-form form input , 
+.register-form form select , 
 .register-form form .register-button{
     min-width: 300px !important;
     min-height: 20px;

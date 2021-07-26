@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   nextSection(){
-    if (this.activeSection < 5){
+    if (this.activeSection < 6){
       this.activeSection +=1;
     }
   }
@@ -105,24 +105,26 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       case 1 : 
         return this.profileForm.value.first_name == "";
       case 2 : 
-        let tmp_u = this.profileForm.get('username');
-        if(tmp_u!=null){
-          return tmp_u.invalid;
-        }
-        return false; //Check Username length
+          return this.profileForm.value.type == "";
       case 3 : 
         let tmp_e = this.profileForm.get('email');
         if(tmp_e!=null){
           return tmp_e.invalid;
         }
         return false; //Check email synthax
-      case 4 :
+      case 4 : 
+        let tmp_u = this.profileForm.get('username');
+        if(tmp_u!=null){
+          return tmp_u.invalid;
+        }
+        return false; //Check Username length
+      case 5 :
         let tmp_p = this.profileForm.get('password');
         if(tmp_p!=null){
           return tmp_p.invalid;
         }
         return false; //Check Password length
-      case 5 : 
+      case 6 : 
         return this.profileForm.value.type == "";
       default : 
         return true;

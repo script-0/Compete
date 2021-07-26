@@ -14,16 +14,23 @@
               <span *ngIf="activeSection==1" class="register-f-name" [@slideInOut]>First Name</span>
               <input *ngIf="activeSection==1" formControlName='first_name' type="text" required (keyup)="doNext($event)" myAutofocus [@slideInOut]/>
 
-              <span *ngIf="activeSection==2" class="register-username" [@slideInOut]>Username ( At least 04 characters required )</span>
-              <input *ngIf="activeSection==2" formControlName='username' type="text" required (keyup)="doNext($event)" myAutofocus [@slideInOut]/>
+              <span *ngIf="activeSection==2" class="register-email" [@slideInOut]>Type</span>
+              <select *ngIf="activeSection==2" formControlName='type' (keyup)="doNext($event)" myAutofocus required [@slideInOut]>
+                <option value=""></option>
+                <option value="student">Student</option>
+                <option value="professional">Professional</option>
+              </select>
 
               <span *ngIf="activeSection==3" class="register-email" [@slideInOut]>Email</span>
               <input *ngIf="activeSection==3" formControlName='email' type="email" (keyup)="doNext($event)" myAutofocus required [@slideInOut]/>
 
-              <span *ngIf="activeSection==4" class="register-password" [@slideInOut]>Password ( At least 04 characters required )</span>
-              <input *ngIf="activeSection==4" formControlName='password' type="password" (keyup)="doNext($event)" myAutofocus required [@slideInOut]/>
+              <span *ngIf="activeSection==4" class="register-username" [@slideInOut]>Username ( At least 04 characters required )</span>
+              <input *ngIf="activeSection==4" formControlName='username' type="text" required (keyup)="doNext($event)" myAutofocus [@slideInOut]/>
 
-              <button *ngIf="activeSection==5" mat-button class="register-button" type="submit" [disabled]="!profileForm.valid || isWorking" myAutofocus [@slideInOut]>Sign Up</button>
+              <span *ngIf="activeSection==5" class="register-password" [@slideInOut]>Password ( At least 04 characters required )</span>
+              <input *ngIf="activeSection==5" formControlName='password' type="password" (keyup)="doNext($event)" myAutofocus required [@slideInOut]/>
+
+              <button *ngIf="activeSection==6" mat-button class="register-button" type="submit" [disabled]="!profileForm.valid || isWorking" myAutofocus [@slideInOut]>Sign Up</button>
           </form>
 
           <div *ngIf='registerFailed' class="registerFailed"> Registration Failed</div>
@@ -32,7 +39,7 @@
 
           <div class="navigation-controls">
             <button mat-button class="go-back" [disabled]= "activeSection==0" (click)="previousSection()"> < Back </button>
-            <button mat-button class="go-next" [disabled]= "activeSection==5 || activeSectionFilled()" (click)="nextSection()"> Next > </button>
+            <button mat-button class="go-next" [disabled]= "activeSection==6 || activeSectionFilled()" (click)="nextSection()"> Next > </button>
           </div>
       </mat-card-content>
   </mat-card>
