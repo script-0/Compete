@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   registerSuccessed : boolean = false;
   isWorking : boolean = true;
 
-  activeSection : number = 5;
+  activeSection : number = 0;
   pwdStrenghStyle  = {
     ind_1 : 'empty-indicator',
     ind_2 : 'empty-indicator',
