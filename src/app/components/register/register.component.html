@@ -38,9 +38,39 @@
                   </div>
                 </div>
               </span>
-              <input *ngIf="activeSection==5" formControlName='password' type="password" (keyup)="doNext($event);testPwd()" myAutofocus required [@slideInOut] placeholder="Password"/>
+              <sat-popover #pwdpopover horizontalAlign="after">
+                <div class="password-requirements-container">
+                  <div class="password-requirements-container-arrow"></div>
+                  <div class="tooltip-wrapper">
+                      <strong>Password requirements</strong>
+                      <hr>
+                      At least 08 characters <br>
+                      At least 01 UPPERCASE <br>
+                      At least 01 numeric <br>
+                      At least 01 special character
+                  </div>
+                </div>
+              </sat-popover>
+              <input *ngIf="activeSection==5" 
+                      [satPopoverAnchor]="pwdpopover"
+                      (mouseenter)="pwdpopover.open()"
+                      (mouseleave)="pwdpopover.close()"
+                      formControlName='password' 
+                      type="password" 
+                      (keyup)="doNext($event);testPwd()" 
+                      myAutofocus 
+                      required 
+                      [@slideInOut] 
+                      placeholder="Password"/>
 
-              <button *ngIf="activeSection==6" mat-button class="register-button" type="submit" [disabled]="!profileForm.valid || isWorking" myAutofocus [@slideInOut]>Sign Up</button>
+              <button *ngIf="activeSection==6" 
+                      mat-button class="register-button" 
+                      type="submit" 
+                      [disabled]="!profileForm.valid || isWorking" 
+                      myAutofocus 
+                      [@slideInOut]>
+                      Sign Up
+              </button>
           </form>
 
           <div *ngIf='registerFailed' class="registerFailed"> Registration Failed</div>

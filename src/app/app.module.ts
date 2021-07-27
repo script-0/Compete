@@ -34,6 +34,8 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
 import { AccountPopupComponent } from './components/account-popup/account-popup.component';
 import { FocusDirective } from './directives/focus/focus.directive';
 
+import { SatPopoverModule } from '@ncstate/sat-popover';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,8 @@ import { FocusDirective } from './directives/focus/focus.directive';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    SatPopoverModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

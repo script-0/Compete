@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   registerSuccessed! : boolean;
   isWorking : boolean = true;
 
-  activeSection : number = 0;
+  activeSection : number = 5;
 
   pwdStrenghStyle  = {
     ind_1 : 'empty-indicator',
@@ -74,7 +74,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   testPwd():void{
-    console.log('testPwd');
     let tmp:string = this.profileForm.value.password;
     if(tmp === ''){
       this.pwdStrenghStyle.ind_1 = 'empty-indicator';
@@ -88,13 +87,13 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       this.pwdStrenghStyle.ind_3 = 'empty-indicator';
       this.pwdStrenghStyle.title = 'Weak';
       this.pwdStrenghStyle.color = 'red';
-    }else if (tmp.length > 4 && tmp.length <= 6){
+    }else if (this.mediumRegex.test(tmp)){
       this.pwdStrenghStyle.ind_1 = 'medium-indicator';
       this.pwdStrenghStyle.ind_2 = 'medium-indicator';
       this.pwdStrenghStyle.ind_3 = 'empty-indicator';
       this.pwdStrenghStyle.title = 'Medium';
       this.pwdStrenghStyle.color = 'orange';
-    }else if (tmp.length > 6){
+    }else if (this.strongRegex.test(tmp)){
       this.pwdStrenghStyle.ind_1 = 'strong-indicator';
       this.pwdStrenghStyle.ind_2 = 'strong-indicator';
       this.pwdStrenghStyle.ind_3 = 'strong-indicator';

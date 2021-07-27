@@ -175,3 +175,30 @@
 .green{
     color:green
 }
+
+.password-requirements-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-requirements-container-arrow{
+    width: 15px;
+    height: 15px;
+    float: right;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    margin-left: 3px;
+    margin-right: -16px;
+    background-color: #505050;
+}
+
+.tooltip-wrapper{
+    padding: 8px;
+    background-color: #505050;
+    color: white;
+    border-radius: 2px;
+    margin: 8px;
+    font-size: 12px;
+    border-radius: 5px;
+}
