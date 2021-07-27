@@ -8,3 +8,4 @@
 https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength-in-javascript/
 - [ ] Improve testPwd
 - [ ] Valid password when it's strong
+- [ ] migrate all not required initialisaztion in ngAfterViewInit()

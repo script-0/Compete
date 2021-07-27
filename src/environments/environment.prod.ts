@@ -7,5 +7,10 @@ export const environment = {
   delayAfterCloseAuthentificationFailedBox : 4000 , //En milli seconds
 
   GAME_COMPLETE : 'Completed',
-  GAME_ALIVE : 'Alive'
+  GAME_ALIVE : 'Alive',
+
+  passwordValidtor : {
+    strong : "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})",
+    medium : "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"
+  }
 };

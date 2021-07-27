@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { environment } from './../../../environments/environment.prod';
 
 @Component({
   selector: 'app-register',
@@ -45,11 +46,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     type: new FormControl(''),
   });
 
-  registerFailed : boolean = false;
-  registerSuccessed : boolean = false;
+  registerFailed! : boolean;
+  registerSuccessed! : boolean;
   isWorking : boolean = true;
 
   activeSection : number = 0;
+
   pwdStrenghStyle  = {
     ind_1 : 'empty-indicator',
     ind_2 : 'empty-indicator',
@@ -58,10 +60,17 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     color : "black"
   }
 
+   strongRegex! : RegExp ;
+   mediumRegex! : RegExp ;
+
   constructor(private router:Router , private userService: UserService) { }
 
   ngAfterViewInit(): void {
     this.isWorking = false;
+    this.registerFailed  = false;
+    this.registerSuccessed  = false;
+    this.strongRegex = new RegExp(environment.passwordValidtor.strong);
+    this.mediumRegex = new RegExp(environment.passwordValidtor.medium);
   }
 
   testPwd():void{
