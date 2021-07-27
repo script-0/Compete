@@ -27,8 +27,18 @@
               <span *ngIf="activeSection==4" class="register-username" [@slideInOut]>Username ( At least 04 characters required )</span>
               <input *ngIf="activeSection==4" formControlName='username' type="text" required (keyup)="doNext($event)" myAutofocus [@slideInOut]/>
 
-              <span *ngIf="activeSection==5" class="register-password" [@slideInOut]>Password ( At least 04 characters required )</span>
-              <input *ngIf="activeSection==5" formControlName='password' type="password" (keyup)="doNext($event)" myAutofocus required [@slideInOut]/>
+              <span *ngIf="activeSection==5" class="register-password" [@slideInOut]>
+                <span class="register-password-title"> Strengh </span>
+                <div class="password-strength-container">
+                  <span class="password-strength-title {{pwdStrenghStyle.color}}"> {{pwdStrenghStyle.title}}</span>
+                  <div class="password-strength-indicators">
+                    <div class="indicator-1 {{pwdStrenghStyle.ind_1}}"></div>
+                    <div class="indicator-2 {{pwdStrenghStyle.ind_2}}"></div>
+                    <div class="indicator-3 {{pwdStrenghStyle.ind_3}}"></div>
+                  </div>
+                </div>
+              </span>
+              <input *ngIf="activeSection==5" formControlName='password' type="password" (keyup)="doNext($event);testPwd()" myAutofocus required [@slideInOut] placeholder="Password"/>
 
               <button *ngIf="activeSection==6" mat-button class="register-button" type="submit" [disabled]="!profileForm.valid || isWorking" myAutofocus [@slideInOut]>Sign Up</button>
           </form>

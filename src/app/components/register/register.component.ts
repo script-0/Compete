@@ -15,6 +15,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         transition(':enter', [
           style({transform: 'translateX(-50%)'}),
           animate('200ms ease-in', style({transform: 'translateX(0%)'}))
+        ]),
+        transition(':leave',[
         ])
       ]
     )
@@ -47,12 +49,51 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   registerSuccessed : boolean = false;
   isWorking : boolean = true;
 
-  activeSection : number = 0;
+  activeSection : number = 5;
+  pwdStrenghStyle  = {
+    ind_1 : 'empty-indicator',
+    ind_2 : 'empty-indicator',
+    ind_3 : 'empty-indicator',
+    title : "Empty",
+    color : "black"
+  }
 
   constructor(private router:Router , private userService: UserService) { }
 
   ngAfterViewInit(): void {
     this.isWorking = false;
+  }
+
+  testPwd():void{
+    console.log('testPwd');
+    let tmp:string = this.profileForm.value.password;
+    if(tmp === ''){
+      this.pwdStrenghStyle.ind_1 = 'empty-indicator';
+      this.pwdStrenghStyle.ind_2 = 'empty-indicator';
+      this.pwdStrenghStyle.ind_3 = 'empty-indicator';
+      this.pwdStrenghStyle.title = 'Empty';
+      this.pwdStrenghStyle.color = 'black';
+    }else if (tmp.length <= 4){
+      this.pwdStrenghStyle.ind_1 = 'weak-indicator';
+      this.pwdStrenghStyle.ind_2 = 'empty-indicator';
+      this.pwdStrenghStyle.ind_3 = 'empty-indicator';
+      this.pwdStrenghStyle.title = 'Weak';
+      this.pwdStrenghStyle.color = 'red';
+    }else if (tmp.length > 4 && tmp.length <= 6){
+      this.pwdStrenghStyle.ind_1 = 'medium-indicator';
+      this.pwdStrenghStyle.ind_2 = 'medium-indicator';
+      this.pwdStrenghStyle.ind_3 = 'empty-indicator';
+      this.pwdStrenghStyle.title = 'Medium';
+      this.pwdStrenghStyle.color = 'orange';
+    }else if (tmp.length > 6){
+      this.pwdStrenghStyle.ind_1 = 'strong-indicator';
+      this.pwdStrenghStyle.ind_2 = 'strong-indicator';
+      this.pwdStrenghStyle.ind_3 = 'strong-indicator';
+      this.pwdStrenghStyle.title = 'Strong';
+      this.pwdStrenghStyle.color = 'green';
+    }else{
+
+    }
   }
 
   ngOnInit(): void {

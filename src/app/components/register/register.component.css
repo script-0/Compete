@@ -110,3 +110,68 @@
     color: white;
     background-color: #005b96;
 }
+
+.register-password{
+    display: flex;
+    align-items: center;
+}
+
+.register-password .register-password-title{ 
+    margin-right: 10px;
+}
+
+.password-strength-container{
+    width: 100%;
+}
+
+.password-strength-container .password-strength-indicators{
+    display: flex;
+}
+
+.password-strength-container .password-strength-indicators > *{
+    margin-left: 5px;
+    flex: 1;
+    height: 5px;
+    border-radius: 10px;
+}
+
+.password-strength-container .password-strength-indicators .indicator-1{
+    margin-left: 0;
+}
+
+.password-strength-container .password-strength-title{
+    font-size: 12px;
+}
+
+.password-strength-container .password-strength-indicators .weak-indicator{
+    background-color: red;
+}
+
+.password-strength-container .password-strength-indicators .medium-indicator{
+    background-color: orange;
+}
+
+.password-strength-container .password-strength-indicators .strong-indicator{
+    background-color: green;
+}
+
+
+.password-strength-container .password-strength-indicators .empty-indicator{
+    background-color: #c6c9c6;
+}
+
+.black{
+    color:black;
+}
+
+.red{
+    color:red;
+}
+
+.orange{
+    color:orange;
+}
+
+.green{
+    color:green
+}
