@@ -25,6 +25,9 @@ import { environment } from './../../../environments/environment.prod';
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
 
+  strongRegex : RegExp = new RegExp(environment.passwordValidtor.strong);
+  mediumRegex! : RegExp ;
+
   profileForm = new FormGroup({
     name: new FormControl(''),
     first_name: new FormControl(''),
@@ -40,7 +43,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
                           ),
     password: new FormControl('',[
                                   Validators.required,
-                                  Validators.minLength(4)
+                                  Validators.pattern(this.strongRegex)
                                   ]
                               ),
     type: new FormControl(''),
@@ -60,8 +63,14 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     color : "black"
   }
 
-   strongRegex! : RegExp ;
-   mediumRegex! : RegExp ;
+  managePwdPopover = (pwdpopover:any)=>{
+    if(this.profileForm.value.password !='') 
+    {
+      pwdpopover.open();
+    }else{
+      pwdpopover.close();
+    }
+  } 
 
   constructor(private router:Router , private userService: UserService) { }
 
@@ -69,7 +78,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.isWorking = false;
     this.registerFailed  = false;
     this.registerSuccessed  = false;
-    this.strongRegex = new RegExp(environment.passwordValidtor.strong);
     this.mediumRegex = new RegExp(environment.passwordValidtor.medium);
   }
 

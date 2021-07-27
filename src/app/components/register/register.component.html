@@ -57,7 +57,10 @@
                       (mouseleave)="pwdpopover.close()"
                       formControlName='password' 
                       type="password" 
-                      (keyup)="doNext($event);testPwd()" 
+                      (keyup)=" doNext($event);
+                                testPwd(); 
+                                managePwdPopover(pwdpopover);
+                              " 
                       myAutofocus 
                       required 
                       [@slideInOut] 
@@ -72,7 +75,6 @@
                       Sign Up
               </button>
           </form>
-
           <div *ngIf='registerFailed' class="registerFailed"> Registration Failed</div>
 
           <div *ngIf='registerSuccessed' class="registerSuccessed"> Registration Successed</div>
