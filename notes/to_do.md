@@ -10,3 +10,4 @@ https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength
 - [x] Valid password when it's strong
 - [ ] Improve password validation
 - [ ] migrate all not required initialisaztion in ngAfterViewInit()
+- [ ] Add meta description
