@@ -28,7 +28,7 @@
               <input *ngIf="activeSection==4" formControlName='username' type="text" required (keyup)="doNext($event)" myAutofocus [@slideInOut]/>
 
               <span *ngIf="activeSection==5" class="register-password" [@slideInOut]>
-                <span class="register-password-title"> Strengh </span>
+                <span class="register-password-title"> Strength </span>
                 <div class="password-strength-container">
                   <span class="password-strength-title {{pwdStrenghStyle.color}}"> {{pwdStrenghStyle.title}}</span>
                   <div class="password-strength-indicators">
